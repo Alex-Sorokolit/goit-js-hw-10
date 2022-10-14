@@ -101,8 +101,6 @@ console.log("Too many matches found. Please enter a more specific name.");
 console.log(countries)
 };
 
-
-
 // Рендер розмітки _________________________________________________________
 function renderListMarkup (data){
  const markup = data.map(createListMarkup).join('');
@@ -115,7 +113,6 @@ function renderCountryMarcup(data) {
 }
 
 // Видалення розмітки _________________________________________________________
-
 function removeList() {
  refs.countryList.innerHTML = '';
 }
