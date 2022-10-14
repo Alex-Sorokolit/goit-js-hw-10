@@ -7,14 +7,75 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
-  color: #212121;
+  background-color: #0d1016;
+  color: #ffffff;
   line-height: 1.5;
 }
-
+.container {
+  /* outline: 1px solid red; */
+  background-image: url(/src/img/World_map.svg);
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95vw;
+  height: 95vh;
+}
 #search-box {
   font: inherit;
   padding: 8px;
-  max-width: 320px;
+  width: 100%;
   margin-bottom: 16px;
+  font-size: 30;
+}
+
+.serch-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, 0%);
+  /* outline: 1px solid teal; */
+  width: 30vw;
+  height: fit-content;
+
+  background-color: rgba(39, 38, 38, 0.3);
+  border-bottom-right-radius: 1%;
+  border-bottom-left-radius: 1%;
+}
+
+.country-list-item {
+  display: flex;
+  align-items: center;
+}
+
+.country-list-flag {
+  margin-right: 20px;
+}
+
+.country-list-name {
+  font-size: 20;
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 20;
+}
+.country-info-image {
+  margin-left: auto;
+  margin-right: auto;
+}
+.country-info-name {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 35px;
+  padding-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.country-info-list {
+  font-size: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  list-style: none;
+  margin-top: 0;
 }

@@ -6,9 +6,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // зробити Debounce на інпуті 300ms
 const DEBOUNCE_DELAY = 300;
 
-// Коли поле пошуку пусте потрібно видалити розмітку
 
-// Зробити меторд trim() який буде видаляти зайві пробіли
 
 
 // Функція fetchCountries(name) робить HTTP-запит ___________
@@ -57,9 +55,12 @@ refs.inputCountryName.addEventListener('input',
 debounce(onSerch, DEBOUNCE_DELAY));
 // console.log(inputValue);
 
+// Коли поле пошуку пусте потрібно видалити розмітку
 function onSerch(event) {
  removeList();
- removeCountry();
+  removeCountry();
+  
+// Меторд trim() видаляє зайві пробіли
  const inputValue = event.target.value.trim().toLowerCase();
 
 fetchCountries(inputValue);
@@ -67,6 +68,11 @@ fetchCountries(inputValue);
 
 
 const options = '?fields=name,capital,population,flags,languages';
+const notifyOptions = {
+  position: 'center-top',
+  fontSize: '20px',
+  showOnlyTheLastOne: true,
+};
 
 const fetchCountries = (countryName) => {
  // перевіряємо як виглядає наш рядок запиту
@@ -78,7 +84,7 @@ const fetchCountries = (countryName) => {
   // якщо response має статус відмінний від ok, то викликаємо помилку
 // якщо країни не існує то показати "Oops, there is no country with that name"
    if (!response.ok) {
-    Notify.failure('Oops, there is no country with that name');
+    Notify.failure('Oops, there is no country with that name',notifyOptions);
     throw new Error(response.status);
    }
    return response.json();
@@ -134,8 +140,8 @@ const languagesValue = Object.values(languages).join(', ')
       class="country-info-image"
       src="${flags.svg}"
       alt="country flag"
-      width="40"
-      height="40"
+      width="300"
+      height="220"
     />
     <p class="country-info-name">${name.official}</p>
     <ul class="country-info-list">
@@ -149,8 +155,8 @@ const languagesValue = Object.values(languages).join(', ')
 
  function createListMarkup({flags,name}){
   return `<li class="country-list-item">
-        <img src="${flags.svg}" alt="country flag"
-        width="40"
+        <img class="country-list-flag" src="${flags.svg}" alt="country flag"
+        width="60"
         height="40"
         />
         <p class="country-list-name">${name.official}</p>
@@ -158,7 +164,7 @@ const languagesValue = Object.values(languages).join(', ')
  };
 
 function manyCountries(countries) {
-Notify.info('Too many matches found. Please enter a more specific name.');
+  Notify.info('Too many matches found. Please enter a more specific name.', notifyOptions);
 console.log("Too many matches found. Please enter a more specific name.");
 console.log(countries)
 };
