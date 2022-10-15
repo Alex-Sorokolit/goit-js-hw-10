@@ -120,3 +120,7 @@ function removeList() {
 function removeCountry() {
  refs.country.innerHTML = '';
 }
+
+
+
+
