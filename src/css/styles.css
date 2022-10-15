@@ -13,7 +13,7 @@ body {
 }
 .container {
   /* outline: 1px solid red; */
-  background-image: url(../src/img/map.svg);
+  background-image: url(/src/map.svg);
   background-size: cover;
   margin-left: auto;
   margin-right: auto;
