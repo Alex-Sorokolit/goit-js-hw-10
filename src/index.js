@@ -6,11 +6,11 @@ import { fetchCountries } from './js/fetchCountries';
 // зробити Debounce на інпуті 300ms
 const DEBOUNCE_DELAY = 300;
 
-refs ={
+const refs = {
  inputCountryName: document.querySelector('#search-box'),
  countryList: document.querySelector('.country-list'),
  country: document.querySelector('.country-info'),
-}
+};
 
 refs.inputCountryName.addEventListener('input',
 debounce(onSerchInput, DEBOUNCE_DELAY));
